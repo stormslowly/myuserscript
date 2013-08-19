@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       SinaWeibo Harness
 // @namespace  http://use.i.E.your.homepage/
-// @version    0.1
+// @version    0.2
 // @require    http://lib.sinaapp.com/js/jquery/2.0/jquery.min.js
 // @description  enter something useful
 // @match      http://www.weibo.com/*
@@ -26,6 +26,8 @@ function  func(){
 //  document.getElementById("pl_rightmod_myinfo").style.cssText="display:none"
 
   blockBySelector("a[node-type=moreBtn]");
+  blockBySelector("div[node-type=feed_spread]");
+
   var block_id_list =[ 
     "pl_content_setSkin",
     "pl_business_enterpriseWeiboNew",
@@ -38,7 +40,6 @@ function  func(){
     "pl_rightmod_noticeboard",
     "pl_content_bubBox",
   ]
-      
   for (var i = block_id_list.length - 1; i >= 0; i--) {
      blockElementById(block_id_list[i]);
   }
@@ -52,8 +53,11 @@ function  func(){
   }
 
   function blockBySelector(sel){
-    if(document.querySelector(sel)!==null){
-      document.querySelector(sel).style.cssText="display:none";
+    var sels = document.querySelectorAll(sel);
+    if(sels!==null){
+      for(var i = 0; i<sels.length;i++){
+        sels[i].style.cssText = "dispaly:none";
+      }
     }
   }
 
