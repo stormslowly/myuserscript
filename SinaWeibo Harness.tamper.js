@@ -2,7 +2,7 @@
 // @name       SinaWeibo Harness
 // @namespace  http://use.i.E.your.homepage/
 // @version    0.1
-// @require    http://lib.sinaapp.com/js/jquery/1.8.2/jquery.js
+// @require    http://lib.sinaapp.com/js/jquery/2.0/jquery.min.js
 // @description  enter something useful
 // @match      http://www.weibo.com/*
 // @match      http://weibo.com/*
@@ -56,11 +56,5 @@ function  func(){
       document.querySelector(sel).style.cssText="display:none";
     }
   }
-
-
-
-
-
-
 
 })()
