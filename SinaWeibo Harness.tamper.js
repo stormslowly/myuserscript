@@ -36,6 +36,7 @@
       "pl_rightmod_vservice",
       "pl_rightmod_noticeboard",
       "pl_content_bubBox",
+      "pl_content_biztips"
     ]
     for (var i = block_id_list.length - 1; i >= 0; i--) {
        blockElementById(block_id_list[i]);
