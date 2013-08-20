@@ -1,12 +1,12 @@
 // ==UserScript==
-// @name       SinaWeibo Harness
+// @name       SinaWeibo ads remove
 // @namespace  http://use.i.E.your.homepage/
 // @version    0.2
 // @require    http://lib.sinaapp.com/js/jquery/2.0/jquery.min.js
-// @description  enter something useful
+// @description  新浪微博去广告脚本，https://github.com/stormslowly/myuserscript
 // @match      http://www.weibo.com/*
 // @match      http://weibo.com/*
-// @copyright  2012+, You
+// @copyright  The MIT License (MIT)
 // ==/UserScript==
 
 (function(){
@@ -15,12 +15,16 @@
 
 
   function func(){
-    
+
+
+    // show all groups    
     var ele = document.querySelector("div[node-type=moreList]");
     if(ele!==null){
       ele.style.cssText="";
     }
+    blockBySelector("a[node-type=moreBtn]");
 
+    // ads in left
     var block_id_list =[ 
       "pl_content_setSkin",
       "pl_business_enterpriseWeiboNew",
@@ -43,11 +47,9 @@
     })
 
     remove_ad_in_main_content();
-
   }
 
   function remove_ad_in_main_content(){
-    blockBySelector("a[node-type=moreBtn]");
     blockBySelector("div[node-type=feed_spread]");
     blockBySelector("div[feedtype=ad]");
   }
