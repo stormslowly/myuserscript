@@ -11,53 +11,58 @@
 
 (function(){
 
-
-
   $(func)
 
 
-function  func(){
+  function func(){
     
-  var ele = document.querySelector("div[node-type=moreList]");
-  if(ele!==null){
-    ele.style.cssText="";
+    var ele = document.querySelector("div[node-type=moreList]");
+    if(ele!==null){
+      ele.style.cssText="";
+    }
+
+    var block_id_list =[ 
+      "pl_content_setSkin",
+      "pl_business_enterpriseWeiboNew",
+      "trustPagelet_checkin_lotteryv5",
+      "pl_rightmod_userguide",
+      "trustPagelet_indexright_recom",
+      "trustPagelet_recom_memberv5",
+      "pl_rightmod_ads36",
+      "pl_rightmod_vservice",
+      "pl_rightmod_noticeboard",
+      "pl_content_bubBox",
+    ]
+    for (var i = block_id_list.length - 1; i >= 0; i--) {
+       blockElementById(block_id_list[i]);
+    }
+
+    $("#pl_content_homeFeed").bind("DOMNodeInserted",function(e){
+      console.log("new feed in");
+      remove_ad_in_main_content();
+    })
+
+    remove_ad_in_main_content();
+
   }
 
-//  document.getElementById("pl_rightmod_myinfo").style.cssText="display:none"
-
-  blockBySelector("a[node-type=moreBtn]");
-  blockBySelector("div[node-type=feed_spread]");
-  blockBySelector("div[feedtype=ad]");
-  
-  var block_id_list =[ 
-    "pl_content_setSkin",
-    "pl_business_enterpriseWeiboNew",
-    "trustPagelet_checkin_lotteryv5",
-    "pl_rightmod_userguide",
-    "trustPagelet_indexright_recom",
-    "trustPagelet_recom_memberv5",
-    "pl_rightmod_ads36",
-    "pl_rightmod_vservice",
-    "pl_rightmod_noticeboard",
-    "pl_content_bubBox",
-  ]
-  for (var i = block_id_list.length - 1; i >= 0; i--) {
-     blockElementById(block_id_list[i]);
+  function remove_ad_in_main_content(){
+    blockBySelector("a[node-type=moreBtn]");
+    blockBySelector("div[node-type=feed_spread]");
+    blockBySelector("div[feedtype=ad]");
   }
-}
 
   function blockElementById(id){
     if(document.getElementById(id)!==null){
       document.getElementById(id).style.cssText="display:none";
     }
-
   }
 
   function blockBySelector(sel){
     var sels = document.querySelectorAll(sel);
     if(sels!==null){
       for(var i = 0; i<sels.length;i++){
-        sels[i].style.cssText = "dispaly:none";
+        sels[i].style.cssText = "display:none";
       }
     }
   }
