@@ -27,7 +27,8 @@ function  func(){
 
   blockBySelector("a[node-type=moreBtn]");
   blockBySelector("div[node-type=feed_spread]");
-
+  blockBySelector("div[feedtype=ad]");
+  
   var block_id_list =[ 
     "pl_content_setSkin",
     "pl_business_enterpriseWeiboNew",
