@@ -24,7 +24,7 @@
     }
     blockBySelector("a[node-type=moreBtn]");
 
-    // ads in left
+    // remove ads in left
     var block_id_list =[ 
       "pl_content_setSkin",
       "pl_business_enterpriseWeiboNew",
@@ -42,7 +42,6 @@
     }
 
     $("#pl_content_homeFeed").bind("DOMNodeInserted",function(e){
-      console.log("new feed in");
       remove_ad_in_main_content();
     })
 
