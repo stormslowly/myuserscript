@@ -17,14 +17,24 @@
   function func(){
 
 
+    $("#pl_content_homeFeed").bind("DOMNodeInserted",function(e){
+      remove_ad_in_main_content();
+    })
+
+    remove_ad_in_main_content();
+    
     // show all groups    
     var ele = document.querySelector("div[node-type=moreList]");
     if(ele!==null){
+      console.log('find elel',ele)
       ele.style.cssText="";
     }
-    blockBySelector("a[node-type=moreBtn]");
+    blockBySelector("a[node-type=moreBtn]");  
+      
+  }
 
-    // remove ads in left
+  function remove_ad_in_main_content(){
+    // remove noise divs
     var block_id_list =[ 
       "pl_content_setSkin",
       "pl_business_enterpriseWeiboNew",
@@ -36,35 +46,31 @@
       "pl_rightmod_vservice",
       "pl_rightmod_noticeboard",
       "pl_content_bubBox",
-      "pl_content_biztips"
+      "pl_content_biztips",
+      "pl_leftnav_app"
     ]
     for (var i = block_id_list.length - 1; i >= 0; i--) {
        blockElementById(block_id_list[i]);
-    }
-
-    $("#pl_content_homeFeed").bind("DOMNodeInserted",function(e){
-      remove_ad_in_main_content();
-    })
-
-    remove_ad_in_main_content();
-  }
-
-  function remove_ad_in_main_content(){
+    }  
+      
     blockBySelector("div[node-type=feed_spread]");
     blockBySelector("div[feedtype=ad]");
+    blockBySelector("div[node-type=recommendTopic]");  
+
   }
 
   function blockElementById(id){
     if(document.getElementById(id)!==null){
-      document.getElementById(id).style.cssText="display:none";
+      document.getElementById(id).remove();
     }
   }
 
   function blockBySelector(sel){
     var sels = document.querySelectorAll(sel);
+    console.log("selector",sel,sels)
     if(sels!==null){
       for(var i = 0; i<sels.length;i++){
-        sels[i].style.cssText = "display:none";
+        sels[i].remove();
       }
     }
   }
