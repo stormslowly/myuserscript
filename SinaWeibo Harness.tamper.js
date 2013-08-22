@@ -26,7 +26,6 @@
     // show all groups    
     var ele = document.querySelector("div[node-type=moreList]");
     if(ele!==null){
-      console.log('find elel',ele)
       ele.style.cssText="";
     }
     blockBySelector("a[node-type=moreBtn]");  
@@ -67,7 +66,6 @@
 
   function blockBySelector(sel){
     var sels = document.querySelectorAll(sel);
-    console.log("selector",sel,sels)
     if(sels!==null){
       for(var i = 0; i<sels.length;i++){
         sels[i].remove();
