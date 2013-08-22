@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       SinaWeibo ads remove
 // @namespace  http://use.i.E.your.homepage/
-// @version    0.2
+// @version    0.3
 // @require    http://lib.sinaapp.com/js/jquery/2.0/jquery.min.js
 // @description  新浪微博去广告脚本，https://github.com/stormslowly/myuserscript
 // @match      http://www.weibo.com/*
