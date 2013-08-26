@@ -13,6 +13,11 @@
 
   $(func)
 
+  setInterval(function(){
+    remove_ad_in_main_content();
+  },4000)
+  
+  remove_ad_in_main_content();
 
   function func(){
 
@@ -46,7 +51,9 @@
       "pl_rightmod_noticeboard",
       "pl_content_bubBox",
       "pl_content_biztips",
-      "pl_leftnav_app"
+      "pl_leftnav_app",
+      "trustPagelet_indexright_recom"
+
     ]
     for (var i = block_id_list.length - 1; i >= 0; i--) {
        blockElementById(block_id_list[i]);
