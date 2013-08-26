@@ -6,6 +6,8 @@
 // @description  新浪微博去广告脚本，https://github.com/stormslowly/myuserscript
 // @match      http://www.weibo.com/*
 // @match      http://weibo.com/*
+// @updateURL https://userscripts.org/scripts/source/176158.meta.js
+// @downloadURL https://userscripts.org/scripts/source/176158.user.js
 // @copyright  The MIT License (MIT)
 // ==/UserScript==
 
@@ -20,21 +22,15 @@
   remove_ad_in_main_content();
 
   function func(){
-
-
     $("#pl_content_homeFeed").bind("DOMNodeInserted",function(e){
       remove_ad_in_main_content();
     })
-
-    remove_ad_in_main_content();
-    
     // show all groups    
     var ele = document.querySelector("div[node-type=moreList]");
     if(ele!==null){
       ele.style.cssText="";
     }
     blockBySelector("a[node-type=moreBtn]");  
-      
   }
 
   function remove_ad_in_main_content(){
@@ -53,8 +49,8 @@
       "pl_content_biztips",
       "pl_leftnav_app",
       "trustPagelet_indexright_recom"
-
     ]
+
     for (var i = block_id_list.length - 1; i >= 0; i--) {
        blockElementById(block_id_list[i]);
     }  
